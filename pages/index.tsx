@@ -115,11 +115,7 @@ const Home: NextPage = () => {
           <div id="projectLinks" className={styles.projectLinks}>
             {Projects.map(project => {
               return (
-                <PortfolioProject
-                  name={project.name}
-                  link={`/${project.slug}`}
-                  key={project.name}
-                />
+                <AnchorLink href={`/${project.slug}`} title={project.name} key={project.name} content={project.name} />
               );
             })}
           </div>
