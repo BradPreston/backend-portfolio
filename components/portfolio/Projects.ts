@@ -12,6 +12,16 @@ const Projects: Project[] = [
     slug: "blog-backend"
   },
   {
+    name: "go-chat",
+    link: "https://github.com/BradPreston/go-chat",
+    bio: "This is a concurrent terminal chat app built in Go and hosted on Fly.io via a Docker container.",
+    part: "I built this app myself",
+    challenges: "I've never built a TCP chat app, so learning how to connect a client and server via TCP was a new challenge for me.",
+    stack: ["Golang", "Docker", "Fly.io"],
+    key: 'oekt92k',
+    slug: "go-chat"
+  },
+  {
     name: "response-json Go Module",
     link: "https://github.com/BradPreston/response-json",
     bio: "I created this module because I got tired of creating the same function in every project. It made more sense to me to make this into a module I could just include in every project to save myself the time of writing it.",

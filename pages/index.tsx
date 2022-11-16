@@ -83,10 +83,10 @@ const Home: NextPage = () => {
               <ul>
                 <li key="golang">Golang</li>
                 <li key="rest">REST</li>
-                <li key="graph">GraphQL</li>
+                <li key="tcpudp">TCP/UDP</li>
+                <li key="http">HTTP</li>
                 <li key="docker">Docker</li>
                 <li key="postgres">PostgreSQL</li>
-                <li key="linux">Linux</li>
               </ul>
             </div>
             <div className={styles.stack}>
