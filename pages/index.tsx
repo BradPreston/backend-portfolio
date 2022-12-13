@@ -67,8 +67,8 @@ const Home: NextPage = () => {
 
         <section className={styles.aboutme}>
           <p>
-            I am a {age} year old backend developer from Kalamazoo, MI. I have a
-            focus on Golang, PostgreSQL, and REST APIs with {practice} years of
+            I am a {age} year old web developer from Kalamazoo, MI. I have a
+            focus on React & NextJS, TypeScript, Golang, PostgreSQL, and REST APIs with {practice} years of
             practice and {professionalExp}{' '}
             {professionalExp <= 1 ? 'year' : 'years'} of professional
             experience.
@@ -82,11 +82,11 @@ const Home: NextPage = () => {
               <h3>Preferred stack:</h3>
               <ul>
                 <li key="golang">Golang</li>
-                <li key="rest">REST</li>
-                <li key="tcpudp">TCP/UDP</li>
-                <li key="http">HTTP</li>
+                <li key="next">NextJS</li>
+                <li key="typescript">TypeScript</li>
+                <li key="rest">Rest APIs</li>
                 <li key="docker">Docker</li>
-                <li key="postgres">PostgreSQL</li>
+                <li key="sql">SQL</li>
               </ul>
             </div>
             <div className={styles.stack}>
@@ -97,12 +97,12 @@ const Home: NextPage = () => {
                 <li key="php">PHP</li>
                 <li key="laravel">Laravel</li>
                 <li key="mongodb">MongoDB</li>
-                <li key="mysql">MySQL</li>
+                <li key="postgresql">PostgreSQL</li>
               </ul>
             </div>
           </div>
           <AnchorLink
-            href="/Brad-Preston-Resume.pdf"
+            href="/Brad-Preston-Resume-2022.pdf"
             title="Download my resume"
             target="_blank"
             content="Download my resume"
