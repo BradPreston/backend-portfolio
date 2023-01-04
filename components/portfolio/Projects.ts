@@ -2,11 +2,21 @@ import Project from '../../interfaces/Project';
 
 const Projects: Project[] = [
   {
+    name: "One With the Riverbed",
+    link: "https://onewiththeriverbed.com",
+    bio: "This website is for a band out of Kalamazoo, MI.",
+    part: "I designed, built, and currently host the site",
+    challenges: "This was my first time using both Tailwind and ReCAPTCHA. Configuring ReCAPTCHA took some figuring, but eventually got it to work. Tailwind was pretty straight forward, but I only scratched the surface of what it can really do.",
+    stack: ["NextJS", "TypeScript", "Tailwind", "CSS Modules", "Vercel"],
+    key: '0oanh3g',
+    slug: "one-with-the-riverbed"
+  },
+  {
     name: "Aaron's Music Service",
     link: "https://aaronsmusicservice.com",
     bio: "This is a simple website I built and maintain for a local luthier",
     part: "I designed, built, and currently host the site",
-    challenges: "I'm not a strong designer, so that was a challenge for me. One of the main challenges was trying to make a site that felt modern, but not confusing to the older generations as they are the ones who use the site the most",
+    challenges: "I'm not a strong designer, so that was a challenge for me. One of the main challenges was trying to make a site that felt modern, but not confusing to the older generations as they are the ones who use the site the most.",
     stack: ["Svelte", "SCSS", "Render"],
     key: 'aeigh93',
     slug: "aarons-music-service"
