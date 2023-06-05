@@ -1,8 +1,8 @@
-import ILink from '../../interfaces/Link';
+import type { Link } from '../../types';
 import styles from './Spotify.module.scss';
 import AnchorLink from '../link/AnchorLink';
 
-export default function SpotifyLink({ href, content, title }: ILink) {
+export default function SpotifyLink({ href, content, title }: Link) {
   return (
     // <a className={styles.link} href={href} target="_blank" title={title}>
     //   {content}

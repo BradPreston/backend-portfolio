@@ -1,4 +1,4 @@
-import Project from '../../interfaces/Project';
+import type { Project } from '../../types';
 import Image from 'next/legacy/image';
 import styles from './Project.module.scss';
 import AnchorLink from '../link/AnchorLink';

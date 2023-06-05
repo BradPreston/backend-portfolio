@@ -1,5 +1,5 @@
-import ILink from '../../interfaces/Link';
-import Link from 'next/link';
+import type { Link } from '../../types';
+import NextLink from 'next/link';
 import styles from './AnchorLink.module.scss';
 
 const AnchorLink = ({
@@ -9,14 +9,14 @@ const AnchorLink = ({
   target,
   next,
   children
-}: ILink) => {
+}: Link) => {
   return (
     <>
       {next ? (
-        <Link href={href} className={styles.link} title={title} target={target}>
+        <NextLink href={href} className={styles.link} title={title} target={target}>
             {content}
             {children}
-        </Link>
+        </NextLink>
       ) : (
         <a
           href={href}

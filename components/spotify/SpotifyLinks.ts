@@ -1,6 +1,6 @@
-import ILink from '../../interfaces/Link';
+import type { Link } from '../../types';
 
-const SpotifyLinks: ILink[] = [
+const SpotifyLinks: Link[] = [
   {
     href: 'https://open.spotify.com/playlist/37i9dQZF1DX3LDIBRoaCDQ?si=c39b289e8d4a43e4',
     content: 'Punk',
