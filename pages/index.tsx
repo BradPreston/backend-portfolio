@@ -143,7 +143,7 @@ const Home: NextPage = (posts: Posts) => {
             </div>
           </div>
           <AnchorLink
-            href="/Brad-Preston-Resume-2022.pdf"
+            href="/Brad-Preston-Resume-2023.pdf"
             title="Download my resume"
             target="_blank"
             content="Download my resume"
