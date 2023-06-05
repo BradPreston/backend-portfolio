@@ -3,7 +3,6 @@ import Head from 'next/head';
 import styles from '../styles/Home.module.scss';
 import SpotifyLinks from '../components/spotify/SpotifyLinks';
 import Projects from '../components/portfolio/Projects';
-import PortfolioProject from '../components/portfolio/PortfolioProject';
 import { useEffect } from 'react';
 import AnchorLink from '../components/link/AnchorLink';
 
