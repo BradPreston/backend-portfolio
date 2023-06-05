@@ -1,10 +1,12 @@
-import type { NextPage } from 'next';
+import type { GetServerSideProps, NextPage } from 'next';
 import Head from 'next/head';
 import styles from '../styles/Home.module.scss';
 import SpotifyLinks from '../components/spotify/SpotifyLinks';
 import Projects from '../components/portfolio/Projects';
 import { useEffect } from 'react';
 import AnchorLink from '../components/link/AnchorLink';
+import { user } from '../graphql/user';
+import type { Post, Posts } from '../types';
 
 const date = new Date();
 const birthday = new Date('May 3, 1993');
@@ -20,49 +22,23 @@ date.getMonth() > startDate.getMonth()
   : professionalExp = (date.getFullYear() - startDate.getFullYear()) - 1;
 if (date.getMonth() > 1 && date.getMonth() < 7) professionalExp += .5;
 
-export async function getServerSideProps() {
+export const getServerSideProps: GetServerSideProps<{posts: Post[]}> = async () => {
   const res = await fetch('https://api.hashnode.com', {
     method: 'POST',
     headers: {
       "Content-Type": "application/json"
     },
     body: JSON.stringify({
-      query: `
-        query {
-          user(username: "bpreston5393") {
-            publication {
-              posts(page: 0) {
-                title
-                brief
-                slug
-              }
-            }
-          }
-        }
-      `
+      query: user
     })
   });
   
-  const data = await res.json();
-  return {
-    props: {
-      posts: data.data.user.publication.posts
-    }
-  }
+  const json = await res.json();
+  const posts = json.data.user.publication.posts
+  return { props: { posts } }
 } 
 
-type Post = {
-  title: string
-  brief: string
-  slug: string
-}
-
-type Posts = {
-  posts: Post[]
-}
-
-
-const Home: NextPage = (posts: Posts) => {
+const Home: NextPage = ({posts}: Posts) => {
   const scrollTop = () => {
     window.scrollTo({
       top: 0,
@@ -153,7 +129,7 @@ const Home: NextPage = (posts: Posts) => {
         <section id="recentPosts" className={styles.posts}>
           <h2>My Recent Blog Posts</h2>
           <div id="postLinks" className={styles.postLinks}>
-            {posts.posts.map(post => {
+            {posts.map(post => {
               return (
                 <AnchorLink next={true} target="_blank" href={`https://bradpreston.hashnode.dev/${post.slug}`} title={post.title} key={post.title} content={post.title} />
               );
