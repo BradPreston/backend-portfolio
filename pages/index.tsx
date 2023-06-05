@@ -7,20 +7,11 @@ import { useEffect } from 'react';
 import AnchorLink from '../components/link/AnchorLink';
 import { user } from '../graphql/user';
 import type { Post, Posts } from '../types';
+import { getAge, getYearsOfExperience } from '../helpers';
 
-const date = new Date();
-const birthday = new Date('May 3, 1993');
-const startDate = new Date('July 1, 2021');
-const practice = date.getFullYear() - 2017;
-let age: number;
-date.getMonth() > birthday.getMonth()
-  ? age = date.getFullYear() - birthday.getFullYear()
-  : age = (date.getFullYear() - birthday.getFullYear()) - 1;
-let professionalExp: number;
-date.getMonth() > startDate.getMonth()
-  ? professionalExp = date.getFullYear() - startDate.getFullYear()
-  : professionalExp = (date.getFullYear() - startDate.getFullYear()) - 1;
-if (date.getMonth() > 1 && date.getMonth() < 7) professionalExp += .5;
+const age = getAge();
+const professionalExp = getYearsOfExperience()
+const practice = new Date().getFullYear() - 2017;
 
 export const getServerSideProps: GetServerSideProps<{posts: Post[]}> = async () => {
   const res = await fetch('https://api.hashnode.com', {
