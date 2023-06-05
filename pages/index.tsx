@@ -19,6 +19,7 @@ let professionalExp: number;
 date.getMonth() > startDate.getMonth()
   ? professionalExp = date.getFullYear() - startDate.getFullYear()
   : professionalExp = (date.getFullYear() - startDate.getFullYear()) - 1;
+if (date.getMonth() > 1 && date.getMonth() < 7) professionalExp += .5;
 
 
 const Home: NextPage = () => {
@@ -67,10 +68,9 @@ const Home: NextPage = () => {
 
         <section className={styles.aboutme}>
           <p>
-            I am a {age} year old web developer from Kalamazoo, MI. I have a
-            focus on React & NextJS, TypeScript, Golang, PostgreSQL, and REST APIs with {practice} years of
-            practice and {professionalExp}{' '}
-            {professionalExp <= 1 ? 'year' : 'years'} of professional
+            I am a {age} year old full stack developer from Kalamazoo, MI. I have a
+            focus on NextJS, TypeScript, and Golang with {practice} years of
+            practice and {professionalExp} years of professional
             experience.
           </p>
         </section>
@@ -81,21 +81,21 @@ const Home: NextPage = () => {
             <div className={styles.stack}>
               <h3>Preferred stack:</h3>
               <ul>
-                <li key="golang">Golang</li>
                 <li key="next">NextJS</li>
                 <li key="typescript">TypeScript</li>
-                <li key="rest">Rest APIs</li>
-                <li key="docker">Docker</li>
+                <li key="nodeJS">Node</li>
+                <li key="golang">Golang</li>
                 <li key="sql">SQL</li>
+                <li key="nosql">NoSQL</li>
               </ul>
             </div>
             <div className={styles.stack}>
               <h3>Tech I've used:</h3>
               <ul>
-                <li key="nodejs">Node JS</li>
-                <li key="express">Express JS</li>
+                <li key="express">Express</li>
                 <li key="php">PHP</li>
                 <li key="laravel">Laravel</li>
+                <li key="docker">Docker</li>
                 <li key="mongodb">MongoDB</li>
                 <li key="postgresql">PostgreSQL</li>
               </ul>
