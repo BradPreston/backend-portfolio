@@ -13,7 +13,7 @@ const AnchorLink = ({
   return (
     <>
       {next ? (
-        <Link href={href} className={styles.link} title={title}>
+        <Link href={href} className={styles.link} title={title} target={target}>
             {content}
             {children}
         </Link>

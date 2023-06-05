@@ -7,6 +7,10 @@
   border-radius: 5px;
   scroll-snap-align: start;
   text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: fit-content;
 
   &:hover {
     background: rgba(213, 99, 90, 0.25);
@@ -25,6 +29,7 @@
   @media only screen and (max-width: 480px) {
     display: flex;
     justify-content: center;
+    width: 100%;
 
     &:not(:last-child) {
       margin-right: unset;

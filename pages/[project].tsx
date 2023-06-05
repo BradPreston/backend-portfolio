@@ -37,6 +37,7 @@ const ProjectPage = () => {
                 })}
               </ul>
               <AnchorLink
+                next={true}
                 href={project.link}
                 target="_blank"
                 title={`Link to ${project.name}`}

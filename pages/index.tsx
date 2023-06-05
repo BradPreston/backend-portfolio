@@ -21,8 +21,49 @@ date.getMonth() > startDate.getMonth()
   : professionalExp = (date.getFullYear() - startDate.getFullYear()) - 1;
 if (date.getMonth() > 1 && date.getMonth() < 7) professionalExp += .5;
 
+export async function getServerSideProps() {
+  const res = await fetch('https://api.hashnode.com', {
+    method: 'POST',
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify({
+      query: `
+        query {
+          user(username: "bpreston5393") {
+            publication {
+              posts(page: 0) {
+                title
+                brief
+                slug
+              }
+            }
+          }
+        }
+      `
+    })
+  });
+  
+  const data = await res.json();
+  return {
+    props: {
+      posts: data.data.user.publication.posts
+    }
+  }
+} 
 
-const Home: NextPage = () => {
+type Post = {
+  title: string
+  brief: string
+  slug: string
+}
+
+type Posts = {
+  posts: Post[]
+}
+
+
+const Home: NextPage = (posts: Posts) => {
   const scrollTop = () => {
     window.scrollTo({
       top: 0,
@@ -110,12 +151,23 @@ const Home: NextPage = () => {
           />
         </section>
 
+        <section id="recentPosts" className={styles.posts}>
+          <h2>My Recent Blog Posts</h2>
+          <div id="postLinks" className={styles.postLinks}>
+            {posts.posts.map(post => {
+              return (
+                <AnchorLink next={true} target="_blank" href={`https://bradpreston.hashnode.dev/${post.slug}`} title={post.title} key={post.title} content={post.title} />
+              );
+            })}
+          </div>
+        </section>
+
         <section id="work" className={styles.work}>
           <h2>My Work</h2>
           <div id="projectLinks" className={styles.projectLinks}>
             {Projects.map(project => {
               return (
-                <AnchorLink href={`/${project.slug}`} title={project.name} key={project.name} content={project.name} />
+                <AnchorLink next={true} href={`/${project.slug}`} title={project.name} key={project.name} content={project.name} />
               );
             })}
           </div>
@@ -144,7 +196,7 @@ const Home: NextPage = () => {
             <li key="reading">Reading on the couch</li>
             <li key="games">Playing video or board games</li>
             <li key="guitar">Playing guitar</li>
-            <li key="exercise">Doing calisthenics</li>
+            <li key="exercise">Riding the stationary bike</li>
           </ul>
         </section>
 
