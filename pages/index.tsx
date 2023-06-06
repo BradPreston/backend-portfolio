@@ -1,13 +1,11 @@
 import type { GetServerSideProps, NextPage } from 'next';
+import type { Post, Posts } from '../types';
 import Head from 'next/head';
 import styles from '../styles/Home.module.scss';
-import SpotifyLinks from '../components/spotify/SpotifyLinks';
-import Projects from '../components/portfolio/Projects';
 import { useEffect } from 'react';
-import AnchorLink from '../components/AnchorLink/AnchorLink';
 import { user } from '../graphql/user';
-import type { Post, Posts } from '../types';
 import { getAge, getYearsOfExperience } from '../helpers';
+import { AboutMe, Hobbies, RecentPosts, Skills, Work, FavoritePlaylists, Contact } from '../components/sections';
 
 export const getServerSideProps: GetServerSideProps<{posts: Post[]}> = async () => {
   const res = await fetch('https://api.hashnode.com', {
@@ -72,150 +70,13 @@ const Home: NextPage = ({posts}: Posts) => {
         <h1 id="heading" onClick={scrollTop}>
           Brad Preston
         </h1>
-
-        <section className={styles.aboutme}>
-          <p>
-            I am a {age} year old full stack developer from Kalamazoo, MI. I have a
-            focus on NextJS, TypeScript, and Golang with {practice} years of
-            practice and {professionalExp} years of professional
-            experience.
-          </p>
-        </section>
-
-        <section className={styles.tech}>
-          <h2>My skills</h2>
-          <div className={styles.stackWrapper}>
-            <div className={styles.stack}>
-              <h3>Preferred stack:</h3>
-              <ul>
-                <li key="next">NextJS</li>
-                <li key="typescript">TypeScript</li>
-                <li key="nodeJS">Node</li>
-                <li key="golang">Golang</li>
-                <li key="sql">SQL</li>
-                <li key="nosql">NoSQL</li>
-              </ul>
-            </div>
-            <div className={styles.stack}>
-              <h3>Tech I've used:</h3>
-              <ul>
-                <li key="express">Express</li>
-                <li key="php">PHP</li>
-                <li key="laravel">Laravel</li>
-                <li key="docker">Docker</li>
-                <li key="mongodb">MongoDB</li>
-                <li key="postgresql">PostgreSQL</li>
-              </ul>
-            </div>
-          </div>
-          <AnchorLink
-            href="/Brad-Preston-Resume-2023.pdf"
-            title="Download my resume"
-            target="_blank"
-            content="Download my resume"
-            key="download"
-          />
-        </section>
-
-        <section id="recentPosts" className={styles.posts}>
-          <h2>My Recent Blog Posts</h2>
-          <div id="postLinks" className={styles.postLinks}>
-            {posts.map(post => {
-              return (
-                <AnchorLink next={true} target="_blank" href={`https://bradpreston.hashnode.dev/${post.slug}`} title={post.title} key={post.title} content={post.title} />
-              );
-            })}
-          </div>
-        </section>
-
-        <section id="work" className={styles.work}>
-          <h2>My Work</h2>
-          <div id="projectLinks" className={styles.projectLinks}>
-            {Projects.map(project => {
-              return (
-                <AnchorLink next={true} href={`/${project.slug}`} title={project.name} key={project.name} content={project.name} />
-              );
-            })}
-          </div>
-          <div className={styles.arrows}>
-            <button
-              id="left"
-              className={`${styles.arrow} ${styles.left}`}
-              onClick={() => {
-                document.querySelector('#projectLinks')!.scrollLeft -= 320;
-              }}
-            ></button>
-            <button
-              id="right"
-              className={`${styles.arrow} ${styles.right}`}
-              onClick={() => {
-                document.querySelector('#projectLinks')!.scrollLeft += 320;
-              }}
-            ></button>
-          </div>
-        </section>
-
-        <section className={styles.hobbies}>
-          <h2>My Hobbies</h2>
-          <p>When I'm not sitting at my computer, you can find me:</p>
-          <ul>
-            <li key="reading">Reading on the couch</li>
-            <li key="games">Playing video or board games</li>
-            <li key="guitar">Playing guitar</li>
-            <li key="exercise">Riding the stationary bike</li>
-          </ul>
-        </section>
-
-        <section className={styles.playlists}>
-          <h2>My Favorite Playlists</h2>
-          <div className={styles.links}>
-            {SpotifyLinks.map(link => {
-              return (
-                <AnchorLink
-                  href={link.href}
-                  title={link.title}
-                  content={link.content}
-                  target="_blank"
-                  key={link.title}
-                />
-              );
-            })}
-          </div>
-        </section>
-
-        <section className={styles.contact}>
-          <h2>Contact Me</h2>
-          <div className={styles.contactButtons}>
-            <AnchorLink
-              href="mailto:bap5393@gmail.com"
-              target="_blank"
-              title="Link to Email"
-              content="Email"
-              key="email"
-            />
-            <AnchorLink
-              href="https://twitter.com/BradDoesCoding"
-              target="_blank"
-              title="Link to Twitter"
-              content="Twitter"
-              key="twitter"
-            />
-            <AnchorLink
-              href="https://www.linkedin.com/in/brad-preston/"
-              target="_blank"
-              title="Link to LinkedIn"
-              content="Linkedin"
-              key="linkedin"
-            />
-            <AnchorLink
-              href="https://github.com/BradPreston"
-              target="_blank"
-              title="Link to GitHub"
-              content="GitHub"
-              key="github"
-            />
-          </div>
-        </section>
+        <AboutMe age={age} practice={practice} professionalExp={professionalExp} />
+        <Skills />
+        <RecentPosts posts={posts} />
+        <Work />
+        <Hobbies />
+        <FavoritePlaylists />
+        <Contact />
       </main>
     </div>
   )

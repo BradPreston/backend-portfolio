@@ -1,0 +1,9 @@
+.links {
+  display: flex;
+
+  @media only screen and (max-width: 480px) {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+}

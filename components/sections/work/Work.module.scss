@@ -1,0 +1,23 @@
+.work {
+  position: relative;
+
+  .projectLinks {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: left;
+    padding-bottom: 10px;
+    
+    a {
+      width: fit-content;
+    }
+
+    @media only screen and (max-width: 480px) {
+      flex-direction: column;
+
+      a {
+        width: 100%;
+      }
+    }
+  }
+}

@@ -1,0 +1,10 @@
+.tech {
+  .stackWrapper {
+    display: flex;
+    margin-bottom: 38px;
+
+    .stack:nth-child(2) {
+      margin-left: 40px;
+    }
+  }
+}
