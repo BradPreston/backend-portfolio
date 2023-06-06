@@ -1,5 +1,5 @@
 import AnchorLink from "../../AnchorLink/AnchorLink";
-import Projects from "../../portfolio/Projects";
+import Projects from "../../../data/Projects";
 import styles from "./Work.module.scss";
 
 function Work() {

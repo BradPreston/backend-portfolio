@@ -1,5 +1,5 @@
 import AnchorLink from "../../AnchorLink/AnchorLink";
-import SpotifyLinks from "../../spotify/SpotifyLinks";
+import SpotifyLinks from "../../../data/SpotifyLinks";
 import styles from "./Playlist.module.scss"
 
 function FavoritePlaylists() {
