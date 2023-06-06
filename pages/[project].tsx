@@ -2,7 +2,7 @@ import { useRouter } from 'next/router';
 import Head from 'next/head';
 import Projects from '../components/portfolio/Projects';
 import styles from '../styles/Project.module.scss';
-import AnchorLink from '../components/link/AnchorLink';
+import AnchorLink from '../components/AnchorLink/AnchorLink';
 
 const ProjectPage = () => {
   const router = useRouter();
