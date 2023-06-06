@@ -39,30 +39,3 @@ body {
     border-bottom-width: 2px;
   }
 }
-
-.headerBackground {
-  width: 100vh;
-  position: fixed;
-  left: 0;
-  top: 0;
-  height: 69px !important;
-  background: #2b2a34;
-  background: #2b2a34;
-  z-index: 99;
-}
-
-h1 {
-  color: #cba72f;
-}
-
-@media only screen and (min-width: 481px) {
-  .projectCard {
-    width: 33%;
-  }
-}
-
-@media only screen and (max-width: 480px) {
-  .projectCard {
-    min-width: 300px;
-  }
-}

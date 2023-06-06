@@ -25,9 +25,10 @@
     padding: 10px 0;
     width: 100%;
     top: 0;
-    background: #2b2a34;
+    background: $black;
     z-index: 100;
     cursor: pointer;
+    color: $gold;
 
     @media only screen and (max-width: 640px) {
       user-select: none;
