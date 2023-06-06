@@ -4,14 +4,10 @@ import styles from '../styles/Home.module.scss';
 import SpotifyLinks from '../components/spotify/SpotifyLinks';
 import Projects from '../components/portfolio/Projects';
 import { useEffect } from 'react';
-import AnchorLink from '../components/link/AnchorLink';
+import AnchorLink from '../components/AnchorLink/AnchorLink';
 import { user } from '../graphql/user';
 import type { Post, Posts } from '../types';
 import { getAge, getYearsOfExperience } from '../helpers';
-
-const age = getAge();
-const professionalExp = getYearsOfExperience()
-const practice = new Date().getFullYear() - 2017;
 
 export const getServerSideProps: GetServerSideProps<{posts: Post[]}> = async () => {
   const res = await fetch('https://api.hashnode.com', {
@@ -30,6 +26,10 @@ export const getServerSideProps: GetServerSideProps<{posts: Post[]}> = async () 
 } 
 
 const Home: NextPage = ({posts}: Posts) => {
+  const age = getAge();
+  const professionalExp = getYearsOfExperience()
+  const practice = new Date().getFullYear() - 2017;
+
   const scrollTop = () => {
     window.scrollTo({
       top: 0,
